@@ -14,8 +14,17 @@ public class Solution {
         int multiple = scanner.nextInt();
 
         int sum = 0;
-        //напишите тут ваш код
+        for (int i = start; i < end; i++) {
 
+            if (i % multiple != 0) {
+                continue;
+            }
+            sum = sum + i;
+        }
         System.out.println(sum);
     }
 }
+//    В методе main с клавиатуры считывается 3 целых числа: start, end (start <= end), multiple.
+//        Допиши программу, чтобы на экран выводилась сумма чисел от start (включительно) до end (не включительно), кратных multiple.
+//        Для этого используй цикл for.
+//        Подсказка: чтобы перейти к следующей итерации цикла, используй оператор continue.
