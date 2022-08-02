@@ -9,8 +9,10 @@ public class Solution {
     public static int[] array = new int[]{-1, 2, 3, -4, -5};
 
     public static void main(String[] args) {
-        for ( int i = 0; i < 5; i++){
-            array[i] = i*(-1);
+        for (int i = 0; i < 5; i++) {
+            if (array[i] % 2 == 0) {
+                array[i] = -array[i];
+            }
         }
         System.out.println(array[0]);
         System.out.println(array[1]);
