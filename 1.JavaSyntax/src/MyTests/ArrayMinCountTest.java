@@ -1,3 +1,5 @@
+package MyTests;
+
 import java.util.Scanner;
 
 public class ArrayMinCountTest {

@@ -1,3 +1,5 @@
+package MyTests;
+
 public class WhileBoxTest {
     public static void main(String[] args) {
         int i = 0;
