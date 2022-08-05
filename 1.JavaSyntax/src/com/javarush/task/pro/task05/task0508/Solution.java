@@ -12,13 +12,18 @@ public class Solution {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         strings = new String[6];
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < strings.length; i++) {
             strings[i] = scanner.nextLine();
         }
-        for (int i = 0; i < 6; i++) {
-            for (int j = 1; j < 6; j++) {
-                if (strings[i].equals(strings[j])) {
-                    strings[i] = "h";
+        for (int i = 0; i < strings.length; i++) {
+            String str = strings[i];
+            for (int j = i + 1; j < strings.length; j++) {
+                if (str == null) {
+                    break;
+                }
+                if (str.equals(strings[j])) {
+                    strings[i] = null;
+                    strings[j] = null;
                 }
             }
         }
