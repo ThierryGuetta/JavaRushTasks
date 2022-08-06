@@ -11,14 +11,14 @@ public class Solution {
         Scanner scanner = new Scanner(System.in); // min = 8 secondMin = 4 min = 4 secondMin = 8
         int min = scanner.nextInt();
         int secondMin = scanner.nextInt();
-        if ( min > secondMin){
+        if (min > secondMin) {
             int tmp = min;
             min = secondMin;
             secondMin = tmp;
         }
-        while (scanner.hasNextInt()){ //  4 8 -5 3
+        while (scanner.hasNextInt()) {
             int number = scanner.nextInt();
-            if ( min == secondMin && number > secondMin){
+            if (min == secondMin && number > secondMin) {
                 secondMin = number;
             } else if (number < min) {
                 secondMin = min;
@@ -26,14 +26,7 @@ public class Solution {
             } else if (number > min && number < secondMin) {
                 secondMin = number;
             }
-
         }
-
-
-
-
-
-
         System.out.println(secondMin);
     }
 }
