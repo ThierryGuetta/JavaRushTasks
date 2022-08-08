@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // min = 8 secondMin = 4 min = 4 secondMin = 8
+        Scanner scanner = new Scanner(System.in);
         int min = scanner.nextInt();
         int secondMin = scanner.nextInt();
         if (min > secondMin) {
