@@ -17,7 +17,7 @@ public class Solution {
         }
         for (int i = 0; i < array.length; i++) {
             if (array.length % 2 == 1) System.out.println(array[i]);
-            if (array.length % 2 == 0) System.out.println(array[array.length - 1 - i]);
+            else System.out.println(array[array.length - 1 - i]);
         }
     }
 }
