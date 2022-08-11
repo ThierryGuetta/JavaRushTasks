@@ -11,7 +11,6 @@ public class Solution {
     }
 
     public static long cube(long a) {
-        long b = a * a * a;
-        return b;
+        return a * a * a;
     }
 }
