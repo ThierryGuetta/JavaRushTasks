@@ -5,8 +5,8 @@ package com.javarush.task.pro.task07.task0702;
 */
 
 public class Solution {
-    int q = 2147483647;
-    short w = 32767;
-    byte e = 127;
-    long r = Long.MAX_VALUE;
+    int q = Integer.MAX_VALUE;
+    long w = Long.MAX_VALUE;
+    short e = Short.MAX_VALUE;
+    byte r = Byte.MAX_VALUE;
 }
