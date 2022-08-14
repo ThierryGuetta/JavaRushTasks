@@ -17,13 +17,11 @@ class Persona {
     int age;
 
     Persona() {
-        name = "Andrey";
-        age = 24;
+        this("Andrey", 24);
     }
 
     Persona(String name) {
-        this.name = name;
-        age = 25;
+        this(name, 25);
     }
 
     Persona(String name, int age) {
