@@ -5,7 +5,7 @@ public class ClassAndConstructorsTraining {
         Person student = new Person();
         student.name = "Andrey";
         student.age = 24;
-        student.hobby = "fishing";
+        student.hobby = "programming";
         student.work = "manager";
         student.experience = 6;
         student.personBio();
