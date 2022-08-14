@@ -21,14 +21,14 @@ class Persona {
         age = 24;
     }
 
-    Persona(String a) {
-        name = a;
+    Persona(String name) {
+        this.name = name;
         age = 25;
     }
 
-    Persona(String a, int b) {
-        name = a;
-        age = b;
+    Persona(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 
     void bioView() {
