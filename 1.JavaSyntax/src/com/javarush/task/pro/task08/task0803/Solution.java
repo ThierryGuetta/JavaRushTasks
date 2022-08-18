@@ -23,9 +23,8 @@ public class Solution {
 
     public static int[] getArrayOfTenElements() {
         Scanner scanner = new Scanner(System.in);
-
         int[] array = new int[10];
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < array.length; i++) {
             array[i] = scanner.nextInt();
         }
         return array;
