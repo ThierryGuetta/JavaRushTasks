@@ -15,6 +15,6 @@ public class ArrayMaxCountTest {
                 max = array[i];
             }
         }
-        System.out.println(ma);
+        System.out.println(max);
     }
 }
