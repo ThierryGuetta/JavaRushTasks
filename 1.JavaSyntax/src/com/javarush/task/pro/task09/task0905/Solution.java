@@ -35,6 +35,6 @@ public class Solution {
             octalNumber = octalNumber / 10;
             i++;
         }
-        return decimal;
+        return decima;
     }
 }
