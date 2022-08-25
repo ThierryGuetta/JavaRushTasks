@@ -15,10 +15,9 @@ public class Solution {
     }
 
     public static String changePath(String path, String jdk) {
-        String[] array = path.split("/");
-        for (int i = 0; i < array.length; i++) {
-            if (array[i].startsWith("jdk")) array[i] = jdk;
-        }
-        return String.join("/", array);
+        int first = path.indexOf("jdk");
+        int second = path.indexOf("/", first);
+        String string = path.substring(first, second);
+        return path.replaceAll(string, jdk);
     }
 }
