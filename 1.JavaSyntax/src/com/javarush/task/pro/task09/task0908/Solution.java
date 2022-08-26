@@ -20,7 +20,7 @@ public class Solution {
         if (binaryNumber == null) return "";
         for (int i = 0; i < binaryNumber.length(); i++) {
             char check = binaryNumber.charAt(i);
-            if (check != '0' && check != '1') return "";
+            if (check != '0' & check != '1') return "";
         }
 
         StringBuilder builder = new StringBuilder(binaryNumber);
