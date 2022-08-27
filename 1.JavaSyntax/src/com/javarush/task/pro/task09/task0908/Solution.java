@@ -17,10 +17,10 @@ public class Solution {
 
     public static String toHex(String binaryNumber) {
 
-        if (binaryNumber == null) return "";
+        if (binaryNumber == null || binaryNumber.equals("")) return "";
         for (int i = 0; i < binaryNumber.length(); i++) {
             char check = binaryNumber.charAt(i);
-            if (check != '0' & check != '1') return "";
+            if (check != '0' && check != '1') return "";
         }
 
         StringBuilder builder = new StringBuilder(binaryNumber);
@@ -52,27 +52,8 @@ public class Solution {
     }
 
     public static String toBinary(String hexNumber) {
-        if (hexNumber == null) return "";
-        for (int i = 0; i < hexNumber.length(); i++) {
-            char check = hexNumber.charAt(i);
-            if (check == '0') continue;
-            else if (check == '1') continue;
-            else if (check == '2') continue;
-            else if (check == '3') continue;
-            else if (check == '4') continue;
-            else if (check == '5') continue;
-            else if (check == '6') continue;
-            else if (check == '7') continue;
-            else if (check == '8') continue;
-            else if (check == '9') continue;
-            else if (check == 'a') continue;
-            else if (check == 'b') continue;
-            else if (check == 'c') continue;
-            else if (check == 'd') continue;
-            else if (check == 'e') continue;
-            else if (check == 'f') continue;
-            else return "";
-        }
+        if (hexNumber == null || hexNumber.equals("")) return "";
+        if (!Pattern.matches("[0-9a-f]+", hexNumber)) return "";
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < hexNumber.length(); i++) {
             String result = "";
