@@ -23,8 +23,16 @@ public class Solution {
             if (check != '0' && check != '1') return "";
         }
 
-        StringBuilder builder = new StringBuilder(binaryNumber);
-        while ((binaryNumber.length() % 4 != 0)) builder.append("0").append(binaryNumber);
+        StringBuilder builder = new StringBuilder();
+        if (binaryNumber.length() % 4 == 1) {
+            builder.append("000").append(binaryNumber);
+        } else if (binaryNumber.length() % 4 == 2) {
+            builder.append("00").append(binaryNumber);
+        } else if (binaryNumber.length() % 4 == 3) {
+            builder.append("0").append(binaryNumber);
+        } else {
+            builder.append(binaryNumber);
+        }
 
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < builder.length(); i += 4) {
