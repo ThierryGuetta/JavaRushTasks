@@ -28,10 +28,18 @@ public class Iphone {
         else return true;
     }
 
+    public int hashCode() {
+        int result = model == null ? 0 : model.hashCode();
+        result = 31 * result + color.hashCode();
+        result = 31 * result + price;
+        return result;
+    }
+
     public static void main(String[] args) {
         Iphone iphone1 = new Iphone("X", "Black", 999);
         Iphone iphone2 = new Iphone("X", "Black", 999);
 
         System.out.println(iphone1.equals(iphone2));
+        System.out.println(iphone1.hashCode() == iphone2.hashCode());
     }
 }
