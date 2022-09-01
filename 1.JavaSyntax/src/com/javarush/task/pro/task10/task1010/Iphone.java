@@ -22,9 +22,9 @@ public class Iphone {
         if (obj == null) return false;
         if(!(obj instanceof Iphone)) return false;
         Iphone phone = (Iphone) obj;
-        if (this.model != null && this.model.equals(phone.model) && this.color != null && this.color.equals(phone.color)
-        && this.price != 0 && this.price == phone.price) return true;
-        else return false;
+        return this.model != null && this.model.equals(phone.model) &&
+                this.color != null && this.color.equals(phone.color) &&
+                this.price != 0 && this.price == phone.price;
     }
 
     public static void main(String[] args) {
