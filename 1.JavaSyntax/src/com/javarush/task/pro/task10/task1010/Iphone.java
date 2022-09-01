@@ -17,14 +17,15 @@ public class Iphone {
         this.price = price;
     }
 
-    public boolean equals (Object obj){
-        if( this == obj) return true;
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
         if (obj == null) return false;
-        if(!(obj instanceof Iphone)) return false;
-        Iphone phone = (Iphone) obj;
-        if (this.model != null && this.model.equals(phone.model) && this.color != null && this.color.equals(phone.color)
-        && this.price != 0 && this.price == phone.price) return true;
-        else return false;
+        if (!(obj instanceof Iphone)) return false;
+        Iphone iphone = (Iphone) obj;
+        if (!Objects.equals(this.model, iphone.model)) return false;
+        if (!Objects.equals(this.color, iphone.color)) return false;
+        if (this.price != iphone.price) return false;
+        else return true;
     }
 
     public static void main(String[] args) {
