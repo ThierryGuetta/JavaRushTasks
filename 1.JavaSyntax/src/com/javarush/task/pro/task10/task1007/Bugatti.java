@@ -9,6 +9,22 @@ public class Bugatti {
     private int year = 2020;
     private String body = "Coupe";
 
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
     public void setBody(String body) {
         this.body = body;
     }
