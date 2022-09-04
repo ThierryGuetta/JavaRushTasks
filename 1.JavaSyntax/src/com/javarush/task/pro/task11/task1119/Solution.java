@@ -16,7 +16,7 @@ public class Solution {
     }
 }
 
-class CellPhone
+class CellPhone {
     String vendor;
     String model;
 
