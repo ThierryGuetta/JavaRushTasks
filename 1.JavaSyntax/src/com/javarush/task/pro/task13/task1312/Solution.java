@@ -14,7 +14,7 @@ public class Solution {
     }
 
     public static HashMap<Integer, String> getProgrammingLanguages() {
-        //напишите тут ваш код
+
         HashMap<Integer, String> programmingLanguages = new HashMap<Integer, String>();
         programmingLanguages.put(0, "Java");
         programmingLanguages.put(1, "Kotlin");
@@ -26,5 +26,4 @@ public class Solution {
         programmingLanguages.put(7, "C++");
         return programmingLanguages;
     }
-
 }
