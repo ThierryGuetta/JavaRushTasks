@@ -1,6 +1,5 @@
 package com.javarush.task.pro.task13.task1301;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 
@@ -17,13 +16,16 @@ public class Solution {
         System.out.println("___________________________________");
 
         HashSet<String> hashSet = arrayToHashSet(array);
-        for(String s : hashSet) {
+        for (String s : hashSet) {
             System.out.println(s);
         }
     }
 
     public static HashSet<String> arrayToHashSet(String[] strings) {
-        HashSet<String> string = new HashSet<>(Arrays.asList(strings));
-        return string;
+        HashSet<String> result = new HashSet<String>();
+        for (int i = 0; i < strings.length; i++) {
+            result.add(strings[i]);
+        }
+        return result;
     }
 }
