@@ -16,7 +16,7 @@ public class Faculty {
         printStudentNames(students);
     }
 
-    public static void printStudentNames(ArrayList <Student> students) {
+    public static void printStudentNames(ArrayList<Student> students) {
         for (int i = 0; i < students.size(); i++) {
             System.out.println(students.get(i).getName());
         }
