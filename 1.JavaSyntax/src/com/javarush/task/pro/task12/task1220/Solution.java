@@ -19,16 +19,12 @@ public class Solution {
     }
 
     public static void checkElementsType(ArrayList<Object> elements) {
-        for (int i = 0; i < elements.size(); i++) {
-            if (elements.get(i) instanceof String) {
-                printString();
-            } else if (elements.get(i) instanceof Integer) {
-                printInteger();
-            } else if (elements.get(i) instanceof Integer[]) {
-                printIntegerArray();
-            } else {
-                printUnknown();
-            }
+        for (Object element : elements) {
+            if (element instanceof String) printString();
+            else if (element instanceof Integer) printInteger();
+            else if (element instanceof Integer[]) printIntegerArray();
+            else printUnknown();
+
         }
     }
 
