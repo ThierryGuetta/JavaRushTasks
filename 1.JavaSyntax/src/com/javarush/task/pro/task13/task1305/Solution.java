@@ -39,24 +39,23 @@ public class Solution {
 
     public static void removeBugWithFor(ArrayList<String> list) {
         for (int i = 0; i < list.size(); i++) {
-            String word = list.get(i);
-            if (word.equalsIgnoreCase("bug")) list.remove(word);
-
+            if (list.get(i).equalsIgnoreCase("bug")) list.remove(i);
         }
     }
 
     public static void removeBugWithWhile(ArrayList<String> list) {
         Iterator<String> it = list.iterator();
         while (it.hasNext()) {
-            String word = it.next();
-            if (word.equalsIgnoreCase("bug")) it.remove();
+            String s = it.next();
+            if (s.equalsIgnoreCase("bug")) it.remove();
         }
     }
 
     public static void removeBugWithCopy(ArrayList<String> list) {
         ArrayList<String> listCopy = new ArrayList<>(list);
-        for (String word : listCopy) {
-            if (word.equalsIgnoreCase("bug")) list.remove(word);
+        for (String s :
+                listCopy) {
+            if (s.equalsIgnoreCase("bug")) list.remove(s);
         }
     }
 }
