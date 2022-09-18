@@ -43,15 +43,12 @@ public class Solution {
 
         System.out.printf(INPUT_AGE, name);
         int age = Integer.parseInt(scanner.nextLine());
-
-
-        user.setName(name);
+        
         if (user.setName(name) == -1) System.out.println(CANNOT_BE_NULL);
         else if (user.setName(name) == -2) System.out.println(CANNOT_BE_EMPTY);
         else if (user.setName(name) == -3) System.out.println(CANNOT_CONTAIN_DIGIT);
-        else if (user.setName(name) != 0) System.out.println(UNKNOWN_ERROR);
-
-        user.setAge(age);
+        else if (user.setName(name) != 0 ) System.out.println(UNKNOWN_ERROR);
+        
         if (user.setAge(age) == -1) System.out.println(CANNOT_BE_NEGATIVE);
         else if (user.setAge(age) == -2) System.out.println(CANNOT_BE_TOO_BIG);
         else if (user.setAge(age) != 0) System.out.println(UNKNOWN_ERROR);
@@ -60,7 +57,9 @@ public class Solution {
     }
 
     static void findUserIndex(User user) {
+
         if (users.indexOf(user) == -1) System.out.printf(NOT_FOUND, user.getName());
-        else System.out.printf(FOUND, user.getName(), users.indexOf(user));
+
+        System.out.printf(FOUND, user.getName(), users.indexOf(user));
     }
 }
