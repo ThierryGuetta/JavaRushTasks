@@ -14,9 +14,7 @@ public class Lion {
             System.out.println("все съел");
         } catch (NullPointerException e) {
             System.out.println("ничего не нашел");
-            return;
         } finally {
-
             System.out.println("лег спать" + (food == null ? " голодным" : ""));
         }
     }
