@@ -32,19 +32,19 @@ public class Solution {
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
-            try {
+            System.out.print(PROMPT_STRING);
+            String input = scanner.nextLine();
+            if (input.toLowerCase().equals(EXIT)) {
+                break;
+            }
 
-                System.out.print(PROMPT_STRING);
-                String input = scanner.nextLine();
-                if (input.toLowerCase().equals(EXIT)) {
-                    break;
-                }
+            try {
                 int studentId = Integer.parseInt(input);
                 System.out.println(ANSWERING + studentsJournal.get(studentId));
             } catch (NumberFormatException e) {
-                System.out.println(INTEGER_REQUIRED);
+                System.out.println("Нужно ввести целое число");
             } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println(NOT_EXIST);
+                System.out.println("Студента с таким номером не существует");
             }
         }
     }
