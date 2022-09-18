@@ -36,10 +36,12 @@ public class Solution {
             if (input.toLowerCase().equals(EXIT)) {
                 break;
             }
+
             int studentId = Integer.parseInt(input);
+
             try {
                 System.out.println(ANSWERING + studentsJournal.get(studentId));
-            } catch (Exception e) {
+            } catch (ArrayIndexOutOfBoundsException e) {
                 System.out.println(NOT_EXIST);
             }
         }
