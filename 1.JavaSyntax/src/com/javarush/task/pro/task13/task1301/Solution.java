@@ -22,10 +22,8 @@ public class Solution {
     }
 
     public static HashSet<String> arrayToHashSet(String[] strings) {
-        HashSet<String> result = new HashSet<String>();
-        for (int i = 0; i < strings.length; i++) {
-            result.add(strings[i]);
-        }
-        return result;
+        HashSet<String> strings1 = new HashSet<>();
+        Collections.addAll(strings1, strings);
+        return strings1;
     }
 }
