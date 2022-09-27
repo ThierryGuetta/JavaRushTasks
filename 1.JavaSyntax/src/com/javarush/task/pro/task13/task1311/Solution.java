@@ -25,11 +25,10 @@ public class Solution {
     }
 
     public static void printStudentsInfo() {
-        for (Map.Entry<String, Double> pair : grades.entrySet()) {
-            String key = pair.getKey();
-            Double value = pair.getValue();
-            System.out.println(key + " : " + value);
+        for (Map.Entry<String, Double> entry : grades.entrySet()) {
+            String name = entry.getKey();
+            Double mark = entry.getValue();
+            System.out.println(name + " : " + mark);
         }
     }
 }
-
