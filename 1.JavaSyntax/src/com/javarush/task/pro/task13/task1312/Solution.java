@@ -14,8 +14,7 @@ public class Solution {
     }
 
     public static HashMap<Integer, String> getProgrammingLanguages() {
-
-        HashMap<Integer, String> programmingLanguages = new HashMap<Integer, String>();
+        HashMap<Integer, String> programmingLanguages = new HashMap<>();
         programmingLanguages.put(0, "Java");
         programmingLanguages.put(1, "Kotlin");
         programmingLanguages.put(2, "Go");
@@ -26,4 +25,5 @@ public class Solution {
         programmingLanguages.put(7, "C++");
         return programmingLanguages;
     }
+
 }
