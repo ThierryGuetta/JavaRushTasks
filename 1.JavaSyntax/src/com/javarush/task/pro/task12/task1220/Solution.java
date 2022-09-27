@@ -24,7 +24,6 @@ public class Solution {
             else if (element instanceof Integer) printInteger();
             else if (element instanceof Integer[]) printIntegerArray();
             else printUnknown();
-
         }
     }
 
