@@ -1,6 +1,5 @@
 package com.javarush.task.pro.task13.task1310;
 
-import java.util.Collections;
 import java.util.HashMap;
 
 /* 
@@ -26,16 +25,17 @@ public class Solution {
     }
 
     public static void printStudents() {
-        System.out.println(grades.keySet());
+        for (String s : grades.keySet()) {
+            System.out.println(s);
+        }
     }
 
     public static Double getAverageMark() {
-        Double sum = 0.0;
-        for (Double s : grades.values()
-        ) {
-            sum += s;
-
+        Double total = 0.0;
+        for (Double s : grades.values()) {
+            total += s;
         }
-        return sum / grades.size();
+        return total/grades.size();
     }
 }
+
