@@ -1,6 +1,7 @@
 package com.javarush.task.task11.task1123;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Solution {
     public static void main(String[] args) {
@@ -30,6 +31,7 @@ public class Solution {
         public Pair(Integer x, Integer y) {
             this.x = x;
             this.y = y;
+            Scanner scanner = new Scanner(System.in);
         }
     }
 }
