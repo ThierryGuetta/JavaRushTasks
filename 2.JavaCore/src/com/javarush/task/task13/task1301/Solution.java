@@ -37,7 +37,7 @@ public class Solution {
 
         @Override
         public boolean isReadyToGoHome() {
-            return READY_TO_GO_HOME;
+            return READY_TO_GO_HOM;
         }
 
         @Override
