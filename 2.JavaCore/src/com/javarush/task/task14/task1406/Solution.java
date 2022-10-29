@@ -8,7 +8,7 @@ import com.javarush.task.task14.task1406.Solution.Mouse;
 
 public class Solution {
     public static void main(String[] args) {
-        Object obj = new Mouse();
+        Object obj = new Jerry();
 
                 Mouse mouse = (Mouse) obj;
         GrayMouse grayMouse = (GrayMouse) mouse;
