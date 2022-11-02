@@ -24,27 +24,23 @@ public class Solution {
     }
 
     public static void showOptions(String url) {
-        url = url.replace("?", " ");
-        url = url.replace("&", " ");
-        String[] strings = url.split(" ");
 
-        double d = 0;
-        String c = "";
+        url = url.replace("?", " ").replace("&", " ");
+        String[] strings = url.split(" ");
+        String result = null;
 
         for (int i = 1; i < strings.length; i++) {
-            if (!strings[i].contains("=")) {
-                System.out.print(strings[i] + " ");
-                continue;
-            }
             String[] str = strings[i].split("=");
-            if (str[0].equals("obj") && (str[1].matches("-?[0-9]+[.][0-9]+") || str[1].matches("-?[0-9]+"))) {
-                d = Double.parseDouble(str[1]);
-            } else if (str[0].equals("obj")) c = str[1];
+            if (str[0].equals("obj")) result = str[1];
             System.out.print(str[0] + " ");
         }
-
         System.out.println();
-        if (d != 0) alert(d);
-        else if(!c.equals(""))alert(c);
+        if (result != null) {
+            try {
+                alert(Double.parseDouble(result));
+            } catch (Exception e) {
+                alert(result);
+            }
+        }
     }
 }
