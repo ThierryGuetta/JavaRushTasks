@@ -12,7 +12,7 @@ public class Solution {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String path1;
         String path2 = "";
-        ArrayList<byte[]> byteList = new ArrayList<>();
+        TreeSet<String> treeSet = new TreeSet<>();
 
         while (true) {
             path1 = br.readLine(); //читаем путь к файлу или end
@@ -20,28 +20,27 @@ public class Solution {
             if (path1.equals("end") || !array[array.length - 1].startsWith("part")) break;
             else {
                 path2 = path1;
-                FileInputStream fis = new FileInputStream(path2);
-                while (fis.available() > 0) {
-                    byte[] bytes = new byte[fis.available()];
-                    int count = fis.read(bytes); //читаем байты в массив
-                    byteList.add(bytes); // и передаем его в список таких же массивов
-                }
-                fis.close();
+                treeSet.add(path2); //добавляю пути к файлам в дерево для сортировки
             }
         }
 
-        String[] array = path2.split("\\.");
-        array[array.length - 1] = "";
-        StringBuilder result = new StringBuilder();
+        String[] array = path2.split("\\."); //здесь я создаю путь в той же директории
+        array[array.length - 1] = ""; //беру путь последнего считанного файла, удаляя [.partN]
+        StringBuilder result = new StringBuilder(); //склеиваем строку
         for (String s : array) {
-            result.append(s).append("."); //result - путь к директории
+            result.append(s).append(".");
         }
 
-        FileOutputStream fos = new FileOutputStream(result.toString());
-
-        for (byte[] bytes : byteList){ //создаем новый файл и записываем в него все байты из 3х файлов
-            fos.write(bytes);
+        try (BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(result.toString()))) {
+            for (String value : treeSet) { //пролистываю дерево с путями
+                try (BufferedInputStream fis = new BufferedInputStream(new FileInputStream(value));) {
+                    while (fis.available() > 0) { //читаю байты из файлов
+                        byte[] bytes = new byte[fis.available()]; //использую буффер
+                        int count = fis.read(bytes);
+                        fos.write(bytes); //записываю байты из буффера в файл
+                    }
+                }
+            }
         }
-        fos.close();
     }
 }
