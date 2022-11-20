@@ -19,8 +19,6 @@ public class Solution {
             new ReadThread(path).start();
         }
     }
-
-
     public static class ReadThread extends Thread {
         private String path;
 
@@ -38,7 +36,6 @@ public class Solution {
                     if (map.containsKey(count)) map.replace(count, map.get(count), map.get(count) + 1);
                     else map.put(count, 1);
                 }
-
             } catch (IOException e) {
                 throw new RuntimeException();
             }
