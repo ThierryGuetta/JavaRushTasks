@@ -30,6 +30,7 @@ public class Solution {
         for (String s : array) {
             result.append(s).append(".");
         }
+        while(result.charAt(result.length() - 1) == '.') result.deleteCharAt(result.length() - 1);
 
         try (BufferedOutputStream fos = new BufferedOutputStream(new FileOutputStream(result.toString()))) {
             for (String value : treeSet) { //пролистываю дерево с путями
