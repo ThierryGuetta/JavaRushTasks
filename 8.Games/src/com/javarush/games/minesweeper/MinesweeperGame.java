@@ -9,11 +9,21 @@ public class MinesweeperGame extends Game {
     private static final int SIDE = 9;
     private GameObject[][] gameField = new GameObject[SIDE][SIDE];
     private int countMinesOnField;
+    private int countFlags;
+
+    private static final String MINE = "\uD83D\uDCA3";
+    private static final String FLAG = "\uD83D\uDEA9";
+
 
     @Override
     public void initialize() {
         setScreenSize(SIDE, SIDE);
         createGame();
+    }
+
+    @Override
+    public void onMouseLeftClick(int x, int y) {
+        openTile(x, y);
     }
 
     private void createGame() {
@@ -28,12 +38,13 @@ public class MinesweeperGame extends Game {
             }
         }
         countMineNeighbors();
+        countFlags = countMinesOnField;
     }
 
     private List<GameObject> getNeighbors(GameObject gameObject) {
         List<GameObject> result = new ArrayList<>();
-        for (int y = gameObject.y - 1; y <= gameObject.y + 1 ; y++) {
-            for (int x = gameObject.x - 1; x <= gameObject.x + 1 ; x++) {
+        for (int y = gameObject.y - 1; y <= gameObject.y + 1; y++) {
+            for (int x = gameObject.x - 1; x <= gameObject.x + 1; x++) {
                 if (y < 0 || y >= SIDE) {
                     continue;
                 }
@@ -61,6 +72,25 @@ public class MinesweeperGame extends Game {
                     }
                 }
             }
+        }
+    }
+
+    private void openTile(int x, int y) {
+        GameObject gameObject = gameField[y][x];
+        gameObject.isOpen = true;
+        setCellColor(x, y, Color.GREEN);
+        if (gameObject.isMine) {
+            setCellValue(gameObject.x, gameObject.y, MINE);
+        } else if (gameObject.countMineNeighbors == 0) {
+            setCellValue(gameObject.x, gameObject.y, "");
+            List<GameObject> neighbors = getNeighbors(gameObject);
+            for (GameObject neighbor : neighbors) {
+                if (!neighbor.isOpen) {
+                    openTile(neighbor.x, neighbor.y);
+                }
+            }
+        } else {
+            setCellNumber(x, y, gameObject.countMineNeighbors);
         }
     }
 }
