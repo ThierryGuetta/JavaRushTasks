@@ -25,8 +25,7 @@ public class Solution {
 
             int max = 0;
             for (String string : strings) {
-                String lastLine = string.substring(0, 8);
-                int id = Integer.parseInt(lastLine.trim());
+                int id = Integer.parseInt(string.substring(0, 8).trim());
                 if (id > max) max = id;
             }
 
