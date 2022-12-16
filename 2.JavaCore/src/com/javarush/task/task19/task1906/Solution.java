@@ -9,7 +9,6 @@ import java.io.*;
 public class Solution {
     public static void main(String[] args) throws IOException {
 
-
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
              BufferedReader br2 = new BufferedReader(new FileReader(br.readLine()));
              BufferedWriter bw = new BufferedWriter(new FileWriter(br.readLine()))) {
