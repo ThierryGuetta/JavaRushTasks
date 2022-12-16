@@ -15,7 +15,7 @@ public class Test {
                 sb.append(line).append(" ");
             }
             int count = 0;
-            String res = sb.toString().toString().replaceAll("\\p{P}", " ");
+            String res = sb.toString().replaceAll("\\p{P}", " ");
             String[] strings = res.split(" ");
             for (String s : strings) {
                 if (s.equalsIgnoreCase("world")) count++;
