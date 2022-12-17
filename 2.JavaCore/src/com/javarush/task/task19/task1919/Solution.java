@@ -12,7 +12,7 @@ import java.util.TreeMap;
 
 public class Solution {
     public static void main(String[] args) throws IOException {
-        if (args.length == 12) {
+        if (args.length == 1) {
             try (BufferedReader br = new BufferedReader(new FileReader(args[0]))) {
                 TreeMap<String, Double> file = new TreeMap<>();
                 String line;
