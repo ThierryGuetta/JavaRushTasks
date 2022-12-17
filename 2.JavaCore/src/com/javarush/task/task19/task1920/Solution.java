@@ -19,12 +19,14 @@ public class Solution {
                 String line;
                 while ((line = br.readLine()) != null) {
                     String[] splitLine = line.split(" ");
+                    double update;
                     if (file.containsKey(splitLine[0])) {
-                        value = file.get(splitLine[0]) + Double.parseDouble(splitLine[1]);
+                        update = file.get(splitLine[0]) + Double.parseDouble(splitLine[1]);
                     } else {
-                        value = Double.parseDouble(splitLine[1]);
+                        update = Double.parseDouble(splitLine[1]);
                     }
-                    file.put(splitLine[0], value);
+                    file.put(splitLine[0], update);
+                    if(value < update) value = update;
                 }
                 for (Map.Entry<String, Double> entry : file.entrySet()) {
                     if (value == entry.getValue()) System.out.println(entry.getKey());
