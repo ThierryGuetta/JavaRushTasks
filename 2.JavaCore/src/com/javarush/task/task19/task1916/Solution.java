@@ -19,36 +19,45 @@ public class Solution {
              BufferedReader file1 = new BufferedReader(new FileReader(br.readLine()));
              BufferedReader file2 = new BufferedReader(new FileReader(br.readLine()))) {
 
-            ArrayList<String> firstFile = new ArrayList<>();
-            ArrayList<String> secondFile = new ArrayList<>();
+            ArrayList<String> fileList1 = new ArrayList<>();
+            ArrayList<String> fileList2 = new ArrayList<>();
             String line;
             while ((line = file1.readLine()) != null) {
-                firstFile.add(line);
+                fileList1.add(line);
             }
             while ((line = file2.readLine()) != null) {
-                secondFile.add(line);
+                fileList2.add(line);
             }
 
-            while (firstFile.size() < secondFile.size()) firstFile.add("~");
-            while (firstFile.size() > secondFile.size()) secondFile.add("~");
-            firstFile.add("~");
-            secondFile.add("~");
-
-            for (int i = 0; i < firstFile.size() - 2; i++) {
-                if (firstFile.get(i).equals(secondFile.get(i + 1))) firstFile.add(i, "~");
-                else if (firstFile.get(i + 1).equals(secondFile.get(i))) secondFile.add(i, "~");
+            for (int i = 0; i < Math.max(fileList1.size(), fileList2.size()); i++) {
+                if (fileList1.size() > i + 1 && fileList2.size() > i + 1) {
+                    if (!fileList1.get(i).equals(fileList2.get(i)) &&
+                            fileList1.get(i).equals(fileList2.get(i + 1))) {
+                        fileList1.add(i, null);
+                    } else if (!fileList1.get(i).equals(fileList2.get(i)) &&
+                            !fileList1.get(i).equals(fileList2.get(i + 1))) {
+                        fileList2.add(i, null);
+                    }
+                }
             }
-            for (int i = 0; i < firstFile.size() - 1; i++) {
-                if (firstFile.get(i).equals("~") && secondFile.get(i).equals("~")) continue;
-                if (firstFile.get(i).equals(secondFile.get(i)))
-                    lines.add(new LineItem(Type.SAME, firstFile.get(i).trim()));
-                else if (firstFile.get(i).equals("~")) lines.add(new LineItem(Type.ADDED, secondFile.get(i)));
-                else if (secondFile.get(i).equals("~")) lines.add(new LineItem(Type.REMOVED, firstFile.get(i).trim()));
+
+            if (fileList1.size() > fileList2.size()) fileList2.add(null);
+            else if (fileList2.size() > fileList1.size()) fileList1.add(null);
+
+            for (int i = 0; i < fileList1.size(); i++) {
+                if (fileList1.get(i) != null &&
+                        fileList2.get(i) != null &&
+                        fileList1.get(i).equals(fileList2.get(i))) {
+                    lines.add(new LineItem(Type.SAME, fileList1.get(i)));
+                } else if (fileList2.get(i) == null) {
+                    lines.add(new LineItem(Type.REMOVED, fileList1.get(i)));
+                } else if (fileList1.get(i) == null) {
+                    lines.add(new LineItem(Type.ADDED, fileList2.get(i)));
+                }
             }
         }
         System.out.println(lines);
     }
-
 
     public static enum Type {
         ADDED,        //добавлена новая строка
