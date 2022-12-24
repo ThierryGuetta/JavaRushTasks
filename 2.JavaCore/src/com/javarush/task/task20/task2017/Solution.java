@@ -9,7 +9,7 @@ import java.io.Serializable;
 */
 
 public class Solution {
-    public A getOriginalObject(ObjectInputStream objectStream) throws IOException, ClassNotFoundException {
+    public A getOriginalObject(ObjectInputStream objectStream){
         try {
             Object obj = objectStream.readObject();
             if (obj instanceof A) {
