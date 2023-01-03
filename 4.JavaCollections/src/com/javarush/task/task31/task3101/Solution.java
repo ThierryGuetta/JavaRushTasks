@@ -20,14 +20,14 @@ public class Solution {
             FileUtils.deleteFile(file);
 
             Queue<File> queue = new PriorityQueue<>();
-            Collections.addAll(queue, directory.listFiles());
+            Collections.addAll(queue, Objects.requireNonNull(directory.listFiles()));
 
             BufferedReader br = null;
             BufferedWriter bw = new BufferedWriter(new FileWriter(updFile));
 
             while (!queue.isEmpty()) {
                 File currentFile = queue.remove();
-                if (currentFile.isDirectory()) Collections.addAll(queue, currentFile.listFiles());
+                if (currentFile.isDirectory()) Collections.addAll(queue, Objects.requireNonNull(currentFile.listFiles()));
                 else if (currentFile.length() <= 50) {
                     br = new BufferedReader(new FileReader(currentFile));
                     while (br.ready()) {
