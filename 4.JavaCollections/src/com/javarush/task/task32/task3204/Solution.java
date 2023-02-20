@@ -2,34 +2,31 @@ package com.javarush.task.task32.task3204;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
 
 /* 
 Генератор паролей
 */
 
 public class Solution {
-    public static void main(String[] args) {
-        //ByteArrayOutputStream password = getPassword();
-        //System.out.println(password.toString());
-        System.out.println(getPassword());
+    public static void main(String[] args) throws IOException {
+        ByteArrayOutputStream password = getPassword();
+        System.out.println(password.toString());
     }
 
-    public static ByteArrayOutputStream getPassword() throws IOException {
-        //num 48-57
-        //lower case 97-122
-        //upper case 65-90
+    public static ByteArrayOutputStream getPassword() {
 
-        byte[] password = new byte[8];
-
-        fillPass(password);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        baos.write(password);
+        try {
+            baos.write(newFilledPass());
+        } catch (IOException e) {
+            getPassword();
+        }
         return baos;
 
     }
 
-    static void fillPass(byte[] password) {
+    static byte[] newFilledPass() {
+        byte[] password = new byte[8];
 
         boolean check1 = false;
         boolean check2 = false;
@@ -56,8 +53,9 @@ public class Solution {
             }
         }
         if (!check1 || !check2 || !check3) {
-            fillPass(password);
+            newFilledPass();
         }
+        return password;
     }
 }
 
