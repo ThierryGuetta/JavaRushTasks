@@ -8,6 +8,7 @@ import java.io.IOException;
 */
 
 public class Solution {
+
     public static void main(String[] args) throws IOException {
         ByteArrayOutputStream password = getPassword();
         System.out.println(password.toString());
@@ -19,41 +20,34 @@ public class Solution {
         try {
             baos.write(newFilledPass());
         } catch (IOException e) {
-            getPassword();
+            System.out.println("Фигня переделывай");
         }
         return baos;
 
     }
 
-    static byte[] newFilledPass() {
+    public static byte[] newFilledPass() {
         byte[] password = new byte[8];
 
-        boolean check1 = false;
-        boolean check2 = false;
-        boolean check3 = false;
+        password[0] = (byte) (48 + (int) (Math.random() * 10));
+        password[1] = (byte) (97 + (int) (Math.random() * 26));
+        password[2] = (byte) (65 + (int) (Math.random() * 26));
 
-        for (int i = 0; i < password.length; i++) {
-            int rnd = 1 + (int) (Math.random() * 3);
-            switch (rnd) {
+        for (int i = 3; i < password.length; i++) {
+            switch (1 + (int) (Math.random() * 3)) {
                 case 1: {
                     password[i] = (byte) (48 + (int) (Math.random() * 10));
-                    check1 = true;
                     break;
                 }
                 case 2: {
                     password[i] = (byte) (97 + (int) (Math.random() * 26));
-                    check2 = true;
                     break;
                 }
                 case 3: {
                     password[i] = (byte) (65 + (int) (Math.random() * 26));
-                    check3 = true;
                     break;
                 }
             }
-        }
-        if (!check1 || !check2 || !check3) {
-            newFilledPass();
         }
         return password;
     }
